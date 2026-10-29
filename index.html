@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLAYCLIPS</title>
+<style>
+body{margin:0;background:#10111b;color:white;font-family:Arial;text-align:center}
+header{background:#191b2b;padding:25px;color:#8b5cf6;font-size:32px;font-weight:bold}
+main{padding:25px}
+input,button{padding:13px;border:0;border-radius:10px;margin:5px}
+button{background:#8b5cf6;color:white;font-weight:bold}
+video{width:100%;max-width:500px;border-radius:15px;margin-top:20px}
+</style>
+</head>
+<body>
+<header>🎬 PLAYCLIPS</header>
+<main>
+<h2>Bienvenue sur PLAYCLIPS</h2>
+<p>Découvre et partage tes clips préférés !</p>
+<input type="file" id="fichier" accept="video/*">
+<button onclick="publier()">Publier un clip</button>
+<div id="clips"></div>
+</main>
+<script>
+function publier(){
+const f=document.getElementById('fichier').files[0];
+if(!f)return alert('Choisis une vidéo !');
+const v=document.createElement('video');
+v.src=URL.createObjectURL(f);
+v.controls=true;
+v.playsInline=true;
+document.getElementById('clips').prepend(v);
+}
+</script>
+</body>
+</html>
